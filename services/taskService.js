@@ -5,6 +5,9 @@ const create = async (name) => {
   return newTask;
 };
 
+const remove = async (id) => taskModel.remove(id);
+
 module.exports = {
   create,
+  remove,
 };

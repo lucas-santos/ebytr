@@ -8,7 +8,16 @@ const create = async (req, res) => {
   res.status(201).json(newTask);
 };
 
+const remove = async (req, res) => {
+  const { id } = req.params;
+
+  await taskService.remove(id);
+
+  res.status(204).send();
+};
+
 task.post('/', create);
+task.delete('/:id', remove);
 
 module.exports = {
   task,
