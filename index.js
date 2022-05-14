@@ -3,10 +3,10 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('okay');
-});
+const { task } = require('./controllers/taskController');
 
-app.listen(process.env.PORT, () => {
-  console.log('Escutando na porta 3000');
+app.use('/tasks', task);
+
+app.listen(3000, () => {
+  console.log(`Escutando na porta ${process.env.PORT}`);
 });
