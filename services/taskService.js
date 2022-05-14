@@ -7,7 +7,13 @@ const create = async (name) => {
 
 const remove = async (id) => taskModel.remove(id);
 
+const update = async (id, body) => {
+  const taskUpdated = await taskModel.update(id, body);
+  return taskUpdated;
+};
+
 module.exports = {
   create,
   remove,
+  update,
 };

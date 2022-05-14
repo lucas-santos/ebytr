@@ -16,9 +16,16 @@ const remove = async (req, res) => {
   res.status(204).send();
 };
 
+const update = async (req, res) => {
+  const { id } = req.params;
+  const { body } = req;
+  const taskUpdated = await taskService.update(id, body);
+  res.status(200).json(taskUpdated);
+};
+
 task.post('/', create);
 task.delete('/:id', remove);
-
+task.put('/:id', update);
 module.exports = {
   task,
 };
