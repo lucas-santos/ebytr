@@ -26,8 +26,14 @@ const update = async (id, body) => {
   };
 };
 
+const getAll = async () => {
+  const [rows] = await db.execute('select * from tasksApi.Task;');
+  return rows;
+};
+
 module.exports = {
   create,
   remove,
   update,
+  getAll,
 };

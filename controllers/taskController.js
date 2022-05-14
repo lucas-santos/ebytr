@@ -23,9 +23,16 @@ const update = async (req, res) => {
   res.status(200).json(taskUpdated);
 };
 
+const getAll = async (req, res) => {
+  const tasks = await taskService.getAll();
+  res.status(200).json(tasks);
+};
+
 task.post('/', create);
 task.delete('/:id', remove);
 task.put('/:id', update);
+task.get('/', getAll);
+
 module.exports = {
   task,
 };
